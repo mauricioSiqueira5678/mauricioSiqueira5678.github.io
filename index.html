@@ -6,8 +6,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Divitech Tecnologia +</title>
   <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400;700&display=swap" rel="stylesheet">
-  <link rel="icon" href="img/redondo.png" type="image/x-icon">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Merienda:wght@300..900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+    <link rel="icon" href="img/redondo.png" type="image/x-icon">
   <link rel="stylesheet" href="index.css">
   <script src="https://kit.fontawesome.com/a076d05399.js"></script>
 </head>
@@ -31,13 +32,13 @@
         <li class="nav-item"><a class="nav-link" href="#contact">Contato</a></li>
       </ul>
     </div>
-  </nav>  
- 
+  </nav>
+
   <!-- Hero Section -->
   <div class="container mt-5 feature-section">
     <div class="row">
       <div class="col-md-6">
-        <h1 class="titulo">Soluções Inovadoras para Gerenciamento de Estoque e Ativos</h1>
+        <h1 class="titulo">Soluções em Gerenciamento de Estoque e Ativos</h1>
         <p>A nossa plataforma oferece um controle abrangente de estoques e ativos como barris, chopeiras e mais, com
           acesso fácil e rápido às informações cruciais para o seu negócio.</p>
         <p>Tenha controle total sobre o estoque e ativos, incluindo rastreabilidade detalhada via QR Code, para garantir
@@ -123,7 +124,14 @@
     style="background-color: white; margin-bottom: 2rem; border-radius: 2rem; padding: 1rem;">
     <h2 class="text-center mb-5 titulo">Preços</h2>
     <div class="preco">
-      <img src="img/preco.jpeg" alt="Tabela de Preços" class="img-fluid ">
+      <p>Na Divitech Tecnologia +, oferecemos uma gama de serviços e produtos personalizados para atender às suas
+        necessidades específicas. Nossa tabela de preços é elaborada com base na complexidade e no escopo dos projetos,
+        garantindo transparência e justiça em todos os orçamentos.</p>
+      <p>Para obter uma cotação detalhada e específica para o seu projeto, convidamos você a entrar em contato conosco.
+        Estamos disponíveis para discutir suas necessidades, oferecer conselhos especializados e criar uma solução que
+        se encaixe perfeitamente no seu orçamento.</p>
+      <p>Entre em contato conosco para mais informações e para agendar uma consulta. Estamos prontos para ajudar você a
+        alcançar seus objetivos com a melhor relação custo-benefício.</p>
     </div>
   </div>
 
@@ -142,29 +150,63 @@
           <h2 class="text-center mb-5 titulo" style="color: white;">Contato</h2>
           <p class="text-center">Entre em contato conosco para mais informações sobre o software e para agendar uma
             demonstração.</p>
-          <a href="mailto:contato@divitech.com.br"> <img src="img/gmail.png" class="logo"
-              alt="">contato@divitech.com.br</a>
-          <a href="https://wa.me/+5511999999999"> <img src="img/whats.png" class="logo" alt="">+55 11
-            99999-9999</a>
-          <form>
+          <a href="mailto:divtechtecnologia@gmail.com"> <img src="img/gmail.png" class="logo"
+              alt="">divtechtecnologia@gmail.com</a>
+          <a href="https://wa.me/+5535988101132"> <img src="img/whats.png" class="logo" alt="">(35)
+            99838-5383</a>
+          <form id="contact-form" action="https://formspree.io/f/xnnajebb" method="POST">
             <div class="form-group">
               <label for="name">Nome</label>
-              <input type="text" class="form-control" id="name" placeholder="Seu nome">
+              <input type="text" class="form-control" id="name" name="name" placeholder="Seu nome" required>
             </div>
             <div class="form-group">
               <label for="email">Email</label>
-              <input type="email" class="form-control" id="email" placeholder="Seu email">
+              <input type="email" class="form-control" id="email" name="email" placeholder="Seu email" required>
             </div>
             <div class="form-group">
               <label for="message">Mensagem</label>
-              <textarea class="form-control" id="message" rows="3" placeholder="Sua mensagem"></textarea>
+              <textarea class="form-control" id="message" name="message" rows="3" placeholder="Sua mensagem"
+                required></textarea>
             </div>
             <button type="submit" class="btn btn-primary button">Enviar</button>
           </form>
+
+          <!-- Mensagens de Sucesso e Erro -->
+          <div id="form-message-success" style="display:none; color: rgb(250, 253, 250); font-weight: bold;">
+            Sua mensagem foi enviada com sucesso!
+          </div>
+          <div id="form-message-error" style="display:none; color: red; font-weight: bold;">
+            Ocorreu um erro ao enviar sua mensagem. Por favor, tente novamente mais tarde.
+          </div>
         </div>
       </div>
     </div>
   </footer>
+
+  <script>
+    document.getElementById('contact-form').addEventListener('submit', function(event) {
+      event.preventDefault(); // Prevenir o comportamento padrão de envio do formulário
+    
+      var form = event.target;
+      var data = new FormData(form);
+      var xhr = new XMLHttpRequest();
+      xhr.open(form.method, form.action);
+      xhr.setRequestHeader('Accept', 'application/json');
+      xhr.onreadystatechange = function() {
+        if (xhr.readyState !== XMLHttpRequest.DONE) return;
+    
+        if (xhr.status === 200) {
+          form.reset();
+          document.getElementById('form-message-success').style.display = 'block';
+          document.getElementById('form-message-error').style.display = 'none';
+        } else {
+          document.getElementById('form-message-error').style.display = 'block';
+          document.getElementById('form-message-success').style.display = 'none';
+        }
+      };
+      xhr.send(data);
+    });
+    </script>
 
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
