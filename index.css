@@ -143,5 +143,6 @@ label{
 
   .footer .social-icons .logo {
     flex-direction: column;
+    flex-wrap: wrap;
   }
 }
