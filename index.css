@@ -110,11 +110,7 @@ h6 {
   color: white;
 }
 
-.logo {
-  width: 40px;
-  padding: 5px;
-  margin: 1rem 0 1rem 0;
-}
+
 
 .logoDiv {
   width: 200px;
@@ -130,6 +126,31 @@ label{
   color: #007bff;
 }
 
+.contact-info {
+  display: flex;
+  flex-direction: column; /* Garante que os itens fiquem em coluna */
+  align-items: center; /* Centraliza os itens horizontalmente */
+  gap: 10px; /* Espaçamento entre os itens */
+  text-align: center; /* Centraliza o texto */
+}
+
+.contact-link {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: white; /* Ajuste a cor conforme necessário */
+  text-decoration: none;
+}
+
+.contact-link:hover {
+  text-decoration: underline;
+}
+
+.logo {
+  width: 40px;
+  padding: 5px;
+}
+
 @media (max-width: 768px) {
   .navbar-brand, .nav-link , p{
     font-size: 1rem;
@@ -141,8 +162,9 @@ label{
     
   }
 
-  .footer .social-icons .logo {
+  .footer .social-icons  {
     flex-direction: column;
-    flex-wrap: wrap;
   }
+
+  
 }
